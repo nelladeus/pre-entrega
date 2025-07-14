@@ -18,31 +18,46 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #f2f6e2; /* Background color for the entire website, including individual sections */
-  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2c4964; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #5846f9; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-  --background-image: url("assets/img/fondo.png")
+body, html {
+  background-image: url("../img/fondo.png");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-attachment: fixed;
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+.main, .page-wrapper, .contenido {
+  background: transparent;
+}
+
+
 :root {
-  --nav-color: rgba(255, 255, 255, 0.8);  /* The default color of the main navmenu links */
-  --nav-hover-color: #f2f6e2; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #f2f6e2; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #5846f9; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --background-color: #f2f6e2;
+  --default-color: #444444;
+  --heading-color: #2c4964;
+  --accent-color: #5846f9;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+
+  background-image: url("../img/fondo.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+ 
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
   --background-color: #f2f6e2;
-  --surface-color: #ffffff;
+ 
 }
 
 .dark-background {
@@ -71,8 +86,7 @@
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
 body {
-  color: var(--default-color);
-  background-color: var(--background-color);
+
   font-family: var(--default-font);
 }
 
@@ -363,7 +377,7 @@ h6 {
 /* Mobile Navigation */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
+    color: #00de8d;
     font-size: 28px;
     line-height: 0;
     margin-right: 10px;
@@ -490,7 +504,7 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .banner{ color: var(--default-color);
-  background: url("../img/banner1_1.png") center center no-repeat;
+  background: url("../img/banner1.png") center center no-repeat;
   width: 1922px; height: 455px;
   background-size: cover;
   font-size: 14px;
@@ -498,7 +512,10 @@ h6 {
   position: relative;
 }
 
-
+@media(max-width:700px){
+  .banner{background: url("../img/b1mob.png") center center no-repeat;
+  width: 648px; height: 952px; background-size: contain; background-position: center top}
+}
 
 .banner2{ color: var(--default-color);
   background: url("../img/banner2.png") center center no-repeat;
@@ -508,6 +525,28 @@ h6 {
   padding-bottom: 50px;
   position: relative;
 }
+
+@media(max-width:700px){
+  .banner2{background: url("../img/b2mob.png") center center no-repeat;
+  width: 648px; height: 952px; background-size: contain; background-position: center top}
+}
+
+.pormob{
+  opacity:0%
+}
+
+@media(max-width:700px){
+  .pormob{opacity:100%}
+}
+
+
+@media(max-width:700px){
+.porcentaje{
+  opacity:0%
+}
+}
+
+
 
 .footer {
   color: var(--default-color);
@@ -760,8 +799,7 @@ h6 {
 --------------------------------------------------------------*/
 section,
 .section {
-  color: var(--default-color);
-  background-color: var(--background-color);
+
   padding: 60px 0;
   scroll-margin-top: 92px;
   overflow: clip;
@@ -778,6 +816,18 @@ section,
 /*--------------------------------------------------------------
 # Global Section Titles
 --------------------------------------------------------------*/
+.tecnico{
+  background-image: url("../img/fondo-t.png")  no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+@media(max-width:640px){
+  .tecnico{ background-image: url("../img/fondo-tmob.png") no-repeat center center;
+   background-size: cover;
+  min-height: 100vh;}
+}
+
 .section-title {
   text-align: center;
   padding-bottom: 60px;
@@ -834,9 +884,21 @@ section,
   display: flex;
   align-items: center;
   background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 100%) 100%), ;
-   background-image: url("../img/hero_nombre.jpg"); 
+   background-image: url("../img/hero.png"); 
   background-size:cover;
 }
+
+@media (max-width: 640px) {
+  .hero{
+  background-image: url("../img/heromob.png") ;
+background-size:contain;
+ background-repeat: no-repeat;
+    background-position: center top;
+width: 640px;
+}
+}
+
+
 
 .hero h1 {
   margin: 0;
@@ -1048,6 +1110,18 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
+
+
+.features{
+   background-color: #f2f6e2;
+}
+
+.services{
+  background-image: url("../img/fondo-t.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 .services .service-item {
   position: relative;
   padding-top: 20px;
@@ -1157,6 +1231,10 @@ section,
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
+.origen {
+background-image: url("../img/fondo-o.png");
+}
+
 
 .features .features-image {
   position: relative;
